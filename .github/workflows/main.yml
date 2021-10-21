@@ -7,14 +7,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: main
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: base
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          path: prhead
+          path: head
       - name: Hello world action step
         id: hello
-        uses: enspyrco/coding-challenge-action@v0
+        uses: enspyrco/coding-challenge-action@v0.1
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
