@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to print the files in the WORKSPACE dir
     steps:
+      - uses: actions/checkout@v2
       - name: Hello world action step
         id: hello
         uses: enspyrco/coding-challenge-action@v0.17
