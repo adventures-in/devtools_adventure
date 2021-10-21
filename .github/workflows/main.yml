@@ -6,9 +6,15 @@ jobs:
     name: A job to print the files in the WORKSPACE dir
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: main
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: prhead
       - name: Hello world action step
         id: hello
-        uses: enspyrco/coding-challenge-action@v0.17
+        uses: enspyrco/coding-challenge-action@v0
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
