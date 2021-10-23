@@ -9,5 +9,3 @@ When you have fixed the problem in each step, put up a PR to have your progress 
 ### Apps with issues
 
 [Step 1 - overflow](packages/1/README.md)
-
-test
