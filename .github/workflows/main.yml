@@ -6,21 +6,32 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to print the files in the WORKSPACE dir
+    name: A job to run tests
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          path: base
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          path: head
-      - name: Hello world action step
-        id: hello
-        uses: enspyrco/coding-challenge-action@v0.4
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+    - name: Output Run Info
+      run: echo "build-number=$GITHUB_RUN_NUMBER, event = ${{ github.event_name }}, branch = ${{ github.ref }}, target = ${{ github.base_ref }}"
+
+    - name: Install checkout
+      uses: actions/checkout@v2
+    
+    ##############################################
+    # Setup flutter-action
+    ##############################################
+    - name: Install Java for Flutter tool
+      uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - name: Install Flutter tool
+      uses: subosito/flutter-action@v1
+      with:
+        channel: 'dev'
+
+    ############################################
+    # Run tests
+    ############################################
+    - name: Tests for challenge 1
+      run: |
+        flutter pub get
+        flutter test
+      working-directory: ./challenges/1
