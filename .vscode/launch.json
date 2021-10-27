@@ -5,24 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "devtools_adventure1",
+      "name": "challenge1",
       "request": "launch",
       "type": "dart",
-      "program": "packages/1/lib/main.dart",
-    },
-    {
-      "name": "devtools_adventure1 (profile mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile",
-      "program": "packages/1/lib/main.dart",
-    },
-    {
-      "name": "mac1",
-      "request": "launch",
-      "type": "dart",
-      "program": "packages/1/lib/main.dart",
-      "deviceId": "macos"
-    },
+      "program": "challenges/1/lib/main.dart",
+    }
   ]
 }
