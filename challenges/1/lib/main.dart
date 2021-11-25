@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile
-const flutterBlurb = "from a single codebase.";
+const flutterBlurb = "from a single.";
 const challengeTitle = 'Challenge 1';
 void main() {
   runApp(const MyApp());
