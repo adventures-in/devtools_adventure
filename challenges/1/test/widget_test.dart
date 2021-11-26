@@ -1,5 +1,4 @@
 import 'package:devtools_adventure/main.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 const flutterBlurb =
@@ -14,8 +13,5 @@ void main() {
 
     // Verify that the expected text is present
     expect(find.text(flutterBlurb), findsOneWidget);
-
-    // Verify the expected widgets
-    expect(find.byType(Text), findsOneWidget);
   });
 }
